@@ -52,4 +52,20 @@ describe('Route Tests', () => {
 		expect(route.startPosition).toBe(startPosition)
 		expect(route.endPosition).toBe(endPosition)
 	})
+	test('updatePoints method', () => {
+		const routeProps: RouteProps = {
+			title: 'minha rota',
+			startPosition: { lat: 0, long: 1 },
+			endPosition: { lat: 2, long: 3 }
+		}
+		const route = new Route(routeProps);
+
+		const points: LatLng[] = [
+			{ lat: 10, long: 20 }
+		]
+		route.updatePoints(points)
+
+		expect(route.points).toHaveLength(1)
+		expect(route.points).toStrictEqual(points)
+	})
 })

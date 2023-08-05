@@ -31,27 +31,32 @@ export class Route {
 		return this.props.title;
 	}
 	private set title(value: string) {
-		this.props.title = 'title updated';
+		this.props.title = value;
 	}
+
 	get startPosition() {
 		return this.props.startPosition;
 	}
 	private set startPosition(value: LatLng) {
 		this.props.startPosition = value;
 	}
+
 	get endPosition() {
 		return this.props.endPosition;
 	}
 	private set endPosition(value: LatLng) {
 		this.props.endPosition = value;
 	}
+
 	get points() {
 		return this.props.points;
 	}
-	private set endPosition(value: LatLng) {
-		this.props.endPosition = value;
+	private set points(value: LatLng[]) {
+		this.props.points = value
 	}
-
+	toJSON() {
+		return this.props;
+	}
 
 
 }
