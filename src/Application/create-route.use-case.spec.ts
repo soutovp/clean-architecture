@@ -10,12 +10,13 @@ describe('CreateRouteUseCase Tests', () => {
 			startPosition: { lat: 1, long: 2 },
 			endPosition: { lat: 3, long: 4 },
 		});
+		expect(repository.items).toHaveLength(1);
 		expect(output).toStrictEqual({
+			id: repository.items[0].id,
 			title: 'my title',
 			startPosition: { lat: 1, long: 2 },
 			endPosition: { lat: 3, long: 4 },
 			points: []
 		})
-		expect(repository.items).toHaveLength(1);
 	})
 })
